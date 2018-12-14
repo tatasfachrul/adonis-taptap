@@ -1,0 +1,12 @@
+@layout('main')
+
+@section('content')
+  
+
+<ul>
+@each(leaderboard in leaderboards)
+<li> {{leaderboard.nama}} || {{leaderboard.combo}}</li> 
+@endeach
+</ul>
+
+@endsection
