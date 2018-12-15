@@ -14,18 +14,20 @@ class LeaderboardController {
 		})
 	}
 
+	// API Get all data
 	async api_all({response}){
 		const leaderboard = await Leaderboards.all()
 
 		return response.json(leaderboard)	
 	}
-
+	// API Get data details
 	async api_details({params, response}){
 		const leaderboard = await Leaderboards.find(params.id)
 
 		return response.json(leaderboard)
 	}
 
+	// API Input
 	async api_insert({request, response}){
 		const dataPlayer = request.only('name')
 		const Leaderboard = new Leaderboards()
@@ -37,17 +39,18 @@ class LeaderboardController {
 		return response.json(Leaderboard)
 	}
 
+	// API Update
 	async api_update({params, response, request}){
 		const leaderboard = await Leaderboards.find(params.id)
-		const dataPlayer = request.only('combos')
+		const dataPlayer = request.only('highestCombo')
 
-		leaderboard.combo = dataPlayer.combos
+		leaderboard.combo = dataPlayer.highestCombo
 		
 		await leaderboard.save()
 		return response.json(leaderboard)
 		
 	}
-
+	// API Delete
 	async api_delete({params, response}){
 		const leaderboard = await Leaderboards.find(params.id)
 

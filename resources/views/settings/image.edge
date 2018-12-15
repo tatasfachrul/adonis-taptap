@@ -1,0 +1,9 @@
+@layout('main')
+
+@section('content')
+    <h1> Image Setting</h1>
+    <form method="POST" action="api/v1/settings/upload-image" enctype="multipart/form-data">
+        <input class="file-input" type="file" name="main_image" />
+        <button type="submit"> Submit </button>
+      </form>
+@endsection

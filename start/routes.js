@@ -17,11 +17,23 @@
 const Route = use('Route')
 
 Route.on('/').render('welcome')
-// Route.get('/test/:id', ({params})=> `this is ${params.id}`) // Example with param
-// Route.get('/test', ()=> 'Hello lord') // example standard
-Route.get('api/v1/leaderboard/view', 'LeaderboardController.index')
+
+// Web View Leaderboard
+Route.get('leaderboard', 'LeaderboardController.index')
+
+// API Leaderboard
 Route.get('api/v1/leaderboard', 'LeaderboardController.api_all')
 Route.get('api/v1/leaderboard/:id', 'LeaderboardController.api_details')
 Route.post('api/v1/leaderboard', 'LeaderboardController.api_insert')
 Route.patch('api/v1/leaderboard/:id', 'LeaderboardController.api_update')
 Route.delete('api/v1/leaderboard/:id', 'LeaderboardController.api_delete')
+
+// Web view App Setting
+Route.get('/settings', 'SettingController.index')
+Route.get('/add-image', 'SettingController.addImage')
+
+// API App setting
+Route.post('api/v1/settings/upload-image', 'SettingController.uploadImage')
+Route.get('main-images', 'SettingController.viewImage')
+
+
