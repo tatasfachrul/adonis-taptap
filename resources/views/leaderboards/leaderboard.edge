@@ -2,11 +2,25 @@
 
 @section('content')
   
+<table class="table">
+<thead>
+    <tr>
+            <th scope="row">Nama</th>
+            <th scope="row">Highest Combo</th>
+    </tr>
+</thead>
+<tbody>   
 
-<ul>
 @each(leaderboard in leaderboards)
-<li> {{leaderboard.nama}} || {{leaderboard.combo}}</li> 
+        <tr>
+          <td scope="row">{{leaderboard.nama}} </td>
+        
+          <td>{{leaderboard.combo}}</td>
+        </tr>
+             
 @endeach
-</ul>
+</tbody>
+</table>
+
 
 @endsection

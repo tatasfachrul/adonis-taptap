@@ -31,6 +31,7 @@ Route.delete('api/v1/leaderboard/:id', 'LeaderboardController.api_delete')
 // Web view App Setting
 Route.get('/settings', 'SettingController.index')
 Route.get('/add-image', 'SettingController.addImage')
+Route.get('/add-sound', 'SettingController.addSound')
 
 // API App setting
 Route.post('api/v1/settings/upload-image', 'SettingController.uploadImage')

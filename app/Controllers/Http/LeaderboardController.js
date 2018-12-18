@@ -2,6 +2,7 @@
 
 // Bring in model
 const Leaderboards = use('App/Models/Leaderboard')
+const Database = use('Database')
 
 
 class LeaderboardController {
@@ -16,7 +17,8 @@ class LeaderboardController {
 
 	// API Get all data
 	async api_all({response}){
-		const leaderboard = await Leaderboards.all()
+		// const leaderboard = await Leaderboards.all()
+		const leaderboard = await Database.from('leaderboards').orderBy('combo', 'desc')
 
 		return response.json(leaderboard)	
 	}

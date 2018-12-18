@@ -11,15 +11,20 @@ class SettingController {
     return view.render("settings.image");
   }
 
+  async addSound({ view }){
+      return view.render("settings.sound")
+  }
+
   async uploadImage({ request, response }) {
     const Helpers = use('Helpers')
 		const profilePic = request.file('main_image', {
 		    types: ['image'],
-		    size: '2mb'
+            size: '2mb',
+            // extnames: ['png']
 		  })
 
 		  await profilePic.move(Helpers.publicPath('upload/'), {
-		    name: 'main_image.png',
+		    name: 'main_image.'+profilePic.subtype,
 		    overwrite: true
 		  })
 
